@@ -1,0 +1,26 @@
+services:
+
+  subscriber_id_generator:
+    class: Ulatest\Domain\Subscriber\SubscriberIdGenerator
+
+  add_subscriber_command_handler:
+    class: Ulatest\Domain\Subscriber\Add\SubscriberAddCommandHandler
+    arguments:
+      - '@subscriber_adder'
+    tags:
+       - { name: command_handler, handles: Ulatest\Domain\Subscriber\Add\SubscriberAddCommand }
+
+  subscriber_adder:
+    class: Ulatest\Domain\Subscriber\Add\SubscriberAdder
+    arguments:
+      - '@subscriber_repository'
+
+  subscriber_searcher:
+    class: Ulatest\Domain\Subscriber\Search\SubscriberSearcher
+    arguments:
+      - '@subscriber_repository'
+
+  subscriber_repository:
+    class: Ulatest\Infrastructure\Persistence\SubscriberRepositoryMySql
+    arguments:
+      - '@doctrine.orm.entity_manager'

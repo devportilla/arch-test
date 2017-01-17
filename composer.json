@@ -1,0 +1,36 @@
+{
+  "name": "ulabox/ddd-test",
+  "require": {
+    "php": ">=7.0",
+    "symfony/console": "~2.6",
+    "egulias/email-validator": "@stable",
+    "symfony/framework-bundle": "^3.2",
+    "doctrine/orm": "^2.5",
+    "simple-bus/message-bus": "^2.2",
+    "simple-bus/symfony-bridge": "^4.1",
+    "doctrine/doctrine-bundle": "^1.6",
+    "doctrine/dbal": "^2.5",
+    "lambdish/phunctional": "^1.0"
+  },
+  "require-dev": {
+    "behat/behat": "~3.0",
+    "behat/mink-extension": "^2.2",
+    "squizlabs/php_codesniffer": "^2.7",
+    "phpunit/phpunit": "^5.7",
+    "mockery/mockery": "dev-master",
+    "fzaninotto/faker": "^1.6",
+    "behat/symfony2-extension": "^2.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "Ulatest\\App\\": "app/src",
+      "Ulatest\\": "src"
+    }
+  },
+  "authors": [
+    {
+      "name": "UlaboxEng",
+      "email": "tech@ulabox.com"
+    }
+  ]
+}

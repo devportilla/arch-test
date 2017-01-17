@@ -1,0 +1,13 @@
+app:
+  extensions:
+    Behat\Symfony2Extension:
+      kernel:
+        class: Ulatest\App\AppKernel
+  suites:
+    app:
+      paths: [ features/app ]
+      contexts:
+        - Ulatest\Test\Behat\ConsoleCommandContext:
+            commandBus: '@command_bus'
+            idGenerator: '@subscriber_id_generator'
+            repository: '@subscriber_repository'

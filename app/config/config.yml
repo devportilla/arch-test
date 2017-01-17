@@ -1,0 +1,33 @@
+imports:
+  - { resource: parameters.yml }
+
+framework:
+
+  secret: %secret%
+
+services:
+
+  app.marketing.subscribe_user:
+    class: Ulatest\App\Commands\UserSubscribe
+    arguments:
+      - '@command_bus'
+      - '@subscriber_id_generator'
+    tags:
+      -  { name: console.command }
+
+doctrine:
+  dbal:
+    driver:   pdo_mysql
+    host:     '%database_host%'
+    dbname:   '%database_name%'
+    user:     '%database_user%'
+    password: '%database_password%'
+
+  orm:
+    auto_generate_proxy_classes: %kernel.debug%
+    auto_mapping: false
+    mappings:
+      custom_mapping:
+        type: yml
+        prefix: Ulatest\Domain\Subscriber
+        dir: "%kernel.root_dir%/../src/Infrastructure/Persistence/"

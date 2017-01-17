@@ -1,0 +1,14 @@
+Ulatest\Domain\Subscriber\Subscriber:
+  type:  entity
+  table: subscriber
+
+  id:
+    id:
+      length: 16
+      options:
+        fixed: true
+      column: id
+
+  fields:
+    email:
+      column: email
